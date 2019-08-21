@@ -74,7 +74,8 @@ color_names=( black red green yellow blue magenta cyan white brblack brred brgre
 DYNAMIC_COLORS_ROOT="${XDG_CACHE_HOME:-${HOME}/.cache}/dynamic-colors"
 DYNAMIC_COLORS_ACTIVE="${DYNAMIC_COLORS_ROOT}/colorscheme"
 
-for d in "$(dirname $(realpath $0))/../share/dynamic-colors/colorschemes" /usr/share/dynamic-colors/colorschemes ; do
+for d in "$(dirname $(realpath $0))/../share/dynamic-colors" /usr/share/dynamic-colors ${XDG_CONFIG_HOME:-$HOME/.config}/dynamic-colors ; do
+  d=$d/colorschemes
   if [[ -d $d ]] ; then
     COLORSCHEMES="${d}"
     break
